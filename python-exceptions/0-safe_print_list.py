@@ -1,13 +1,11 @@
-#!/usr/bin/python3
 def safe_print_list(my_list=[], x=0):
-    n = 0  # Counter variable
-    for n in range(x):
-        try:
-            print("{}".format(my_list[n]), end="")
-            n += 1
+    try:
+        for q in range(x):
+            print(my_list[q], end=' ')
+    except IndexError:
+        pass
+    finally:
+        print('\n', end='')
+    return min(x, len(my_list))
 
-        except IndexError:
-            break
-    print()
-    return (n)  # Return number of elem printed
 ~                                               
