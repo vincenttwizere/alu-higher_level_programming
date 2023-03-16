@@ -75,4 +75,4 @@ class SinglyLinkedList:
                 string += "\n"
                 string += str(curr_n.data)
                 curr_n = curr_n.next_node
-        return strin
+        return string

@@ -1,20 +1,43 @@
-
 #!/usr/bin/python3
 """Module containing the Square class"""
 
 
 class Square:
     """The Square class"""
-    def __init__(self, size=0):
+    def __init__(self, size=0, position=(0, 0)):
         """Initializing an instance of Square
         Args:
             size (int): The size of the Square instance. Default value is 0.
+            position (:obj:'tuple' of int): x, y coordinate offset when
+                printing the square.
         """
         self.size = size
+        self.position = position
+
+    def __str__(self):
+        """Returns a string consisting of a square made with hashtags using the
+        'size'. Uses 'position' to offset where the printing should begin. The
+        x, y coordinate in 'position' is the location of the top left corner of
+        the square.
+        Returns:
+            str: A string representing a square made of hashtags.
+        """
+        __my_string = ""
+        if self.__size is not 0:
+            for y in range(self.__position[1]):
+                __my_string += '\n'
+            for i in range(self.__size):
+                for x in range(self.__position[0]):
+                    __my_string += ' '
+                for j in range(self.__size):
+                    __my_string += '#'
+                if i is not self.__size - 1:
+                    __my_string += '\n'
+        return __my_string
 
     @property
     def size(self):
-        """int: size of the Square instance"""
+        """int: Value of 'size'"""
         return self.__size
 
     @size.setter
@@ -26,96 +49,41 @@ class Square:
 
         self.__size = size
 
+    @property
+    def position(self):
+        """:obj:'tuple' of int: x, y coordinate offset when printing the square.
+        """
+        return self.__position
+
+    @position.setter
+    def position(self, position):
+        if (not isinstance(position, tuple) or len(position) is not 2 or
+            not isinstance(position[0], int) or
+                not isinstance(position[1], int) or position[0] < 0 or
+                position[1] < 0):
+            raise TypeError("position must be a tuple of 2 positive integers")
+
+        self.__position = position
+
     def area(self):
         """Returns the current square area of the instance
         Returns:
-            int: The square of size
+            int: Value of 'size'
         """
         return self.__size ** 2
 
-    def __eq__(self, other):
-        """Check if the area of the instance is the same as the area of 'other'.
-        Returns:
-            bool: The return Value. True if self.area == other.area. False
-                otherwise, or 'other' is not of type Square.
-        """
-        if isinstance(other, Square):
-            if self.area() == other.area():
-                return True
-            else:
-                return False
+    def my_print(self):
+        """Prints a square with hashtags using the 'size'. Uses 'position' to
+        offset where the printing should begin. The x, y coordinate in
+        'position' is the location of the top left corner of the square."""
+        if self.__size is not 0:
+            for y in range(self.__position[1]):
+                print()
+            for i in range(self.__size):
+                for x in range(self.__position[0]):
+                    print(" ", end="")
+                for j in range(self.__size):
+                    print("#", end="")
+                print()
         else:
-            return False
-
-    def __ne__(self, other):
-        """Check if the area of the instance is not the same as the area of
-            'other'.
-        Returns:
-            bool: The return Value. True if self.area != other.area. False
-                otherwise, or 'other' is not of type Square.
-        """
-        if isinstance(other, Square):
-            if self.area() != other.area():
-                return True
-            else:
-                return False
-        else:
-            return False
-
-    def __gt__(self, other):
-        """Check if the area of the instance is greater than the area of 'other'.
-        Returns:
-            bool: The return Value. True if self.area > other.area. False
-                otherwise, or 'other' is not of type Square.
-        """
-        if isinstance(other, Square):
-            if self.area() > other.area():
-                return True
-            else:
-                return False
-        else:
-            return False
-
-    def __ge__(self, other):
-        """Check if the area of the instance is greater than or equal to the
-            area of 'other'.
-        Returns:
-            bool: The return Value. True if self.area >= other.area. False
-                otherwise, or 'other' is not of type Square.
-        """
-        if isinstance(other, Square):
-            if self.area() >= other.area():
-                return True
-            else:
-                return False
-        else:
-            return False
-
-    def __lt__(self, other):
-        """Check if the area of the instance is less than the area of 'other'.
-        Returns:
-            bool: The return Value. True if self.area < other.area. False
-                otherwise, or 'other' is not of type Square.
-        """
-        if isinstance(other, Square):
-            if self.area() < other.area():
-                return True
-            else:
-                return False
-        else:
-            return False
-
-    def __le__(self, other):
-        """Check if the area of the instance is less than or equal to the area
-            of 'other'.
-        Returns:
-            bool: The return Value. True if self.area <= other.area. False
-                otherwise, or 'other' is not of type Square.
-        """
-        if isinstance(other, Square):
-            if self.area() <= other.area():
-                return True
-            else:
-                return False
-        else:
-            return False
+            print()
