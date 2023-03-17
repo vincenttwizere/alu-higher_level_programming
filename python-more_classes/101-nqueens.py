@@ -152,9 +152,9 @@ def top_right(matrix, y, x, n):
             x += 1
     return True
 
-if _name_ == "_main_":
+if __name__ == "__main__":
     from sys import argv
-    if len(argv) is not 2:
+    if len(argv) != 2:
         print("Usage: nqueens N")
         exit(1)
     try:
@@ -166,5 +166,4 @@ if _name_ == "_main_":
         print("N must be at least 4")
         exit(1)
 
-    all_possible(n)
-
+    all_possible(n)
