@@ -44,8 +44,7 @@ def recur_bt(matrix, row, col, n):
     """
     if len(matrix) is n:
         return matrix
-
-    if row:
+if row:
         i = row
         for j in col:
                 if (not bot_right(matrix, i + 1, j + 1, n) or
