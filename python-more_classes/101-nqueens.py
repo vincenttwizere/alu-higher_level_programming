@@ -131,5 +131,4 @@ if _name_ == "_main_":
     board = init_board(int(sys.argv[1]))
     solutions = recursive_solve(board, 0, 0, [])
     for sol in solutions:
-        print(sol)
-
+        print(sol)
