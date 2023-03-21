@@ -1,1 +1,1 @@
-programing language of high level
+python-inheritance
