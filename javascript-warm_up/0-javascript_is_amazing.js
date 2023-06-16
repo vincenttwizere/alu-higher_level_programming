@@ -1,5 +1,4 @@
 #!/usr/bin/node
 C is fun
-Python is cool
-JavaScript is amazing
+myVar="JavaScript is amazing"
 console.log(...)
