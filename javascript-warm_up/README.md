@@ -18,6 +18,6 @@
 <li> <a href="https://developer.mozilla.org/en-US/docs/Learn/Getting_started_with_the_web/JavaScript_basics"> Modern JS</a> </li>
 </ul>
 <br>
-<h1> <b>Going hard as I can<b> <span class="emoji">😊</span> /h1>
+<h1> <b>Going hard as I can<b> <span class="emoji">😊</span> </h1>
 
 
